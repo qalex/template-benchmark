@@ -23,6 +23,7 @@
 		<trimou.version>2.2.0.Final</trimou.version>
 		<hbs.version>4.0.6</hbs.version>
 		<rocker.version>0.20.0</rocker.version>
+		<jade4j.version>1.2.5</jade4j.version>
 	</properties>
 
 	<licenses>
@@ -160,6 +161,11 @@
             <artifactId>rocker-runtime</artifactId>
             <version>${rocker.version}</version>
         </dependency>
+        <dependency>
+            <groupId>de.neuland-bfi</groupId>
+            <artifactId>jade4j</artifactId>
+            <version>${jade4j.version}</version>
+        </dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -175,4 +181,13 @@
 		<developerConnection>scm:git:git@github.com:mbosecke/template-benchmark.git</developerConnection>
 		<url>http://github.com/mbosecke/template-benchmark</url>
 	</scm>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.4</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

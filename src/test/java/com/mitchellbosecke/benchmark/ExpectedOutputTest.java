@@ -81,6 +81,18 @@ public class ExpectedOutputTest {
         assertOutput(hbs.benchmark());
     }
 
+    @Test
+    public void testJade4JOutput() throws IOException {
+        Jade4J jade4j = new Jade4J();
+        jade4j.setup();
+        String output = jade4j.benchmark();
+        
+        // Jade4J always renders <meta> and <link> without
+        // self-closing tag while doctype is set to html
+        String fixedSelfClosing = output.replaceAll("<(meta|link)([^>]*)>", "<$1$2/>");
+        assertOutput(fixedSelfClosing);
+    }
+
     private void assertOutput(final String output) throws IOException {
         assertEquals(readExpectedOutputResource(), output.replaceAll("\\s", ""));
     }
